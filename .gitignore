@@ -93,8 +93,7 @@ docs/_templates
 
 # media
 FusionIIIT/media
-# ignoring settings.py
+#ignoring settings.py
 FusionIIIT/Fusion/settings.py
 
-# vim swap file
-*.swp
+FusionIIIT/Fusion/settings.py
