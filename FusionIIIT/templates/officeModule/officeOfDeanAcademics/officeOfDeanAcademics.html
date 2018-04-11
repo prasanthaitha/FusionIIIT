@@ -37,35 +37,57 @@
             <div class="ui divider"></div>
 
             {% comment %}The Tab-Menu starts here!{% endcomment %}
+
             <div class="ui huge fluid vertical pointing menu"
                  style="max-width: 320px;">
-
+                 {% if request.user.extrainfo.designation.name == "Dean_Acad" %}
                 <a class="active item" data-tab="first">
                     Assistantship
                     <i class="right floated chevron right icon"></i>
                 </a>
-
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "Dean_Acad" %}
                 <a class="item" data-tab="second">
                     Scholarships
                     <i class="right floated chevron right icon"></i>
                 </a>
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "Dean_Acad" %}
                 <a class="item" data-tab="third">
                     Submitted Thesis
                     <i class="right floated chevron right icon"></i>
                 </a>
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "Dean_Acad" %}
                 <a class="item" data-tab="fourth">
                      Floated  Courses
                     <i class="right floated chevron right icon"></i>
                 </a>
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "Dean_Acad" %}
                 <a class="item" data-tab="fifth">
                      Applications
                     <i class="right floated chevron right icon"></i>
                 </a>
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "Dean_Acad" %}
                 <a class="item" data-tab="sixth">
                      Sem Results
                     <i class="right floated chevron right icon"></i>
                 </a>
-
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "dracad" %}
+                <a class="item" data-tab="second">
+                    Scholarships
+                    <i class="right floated chevron right icon"></i>
+                </a>
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "dracad" %}
+                <a class="item" data-tab="sixth">
+                     Sem Results
+                    <i class="right floated chevron right icon"></i>
+                </a>
+                {% endif %}
             </div>
             {% comment %}The Tab-Menu ends here!{% endcomment %}
 
