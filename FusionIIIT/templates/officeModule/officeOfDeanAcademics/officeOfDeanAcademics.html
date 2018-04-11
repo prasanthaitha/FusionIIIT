@@ -27,7 +27,7 @@
             {% block usercard %}
 
                 {% comment %}
-                TODO: Instead of Name write the position like "Office Of Dean Students!"
+                TODO: Instead of Name write the position like "Office Of Dean Academics!"
                 {% endcomment %}
 
                 {% include 'globals/usercard.html' %}
@@ -102,37 +102,49 @@
         {% endcomment %}
         <div class="eight wide column">
             {% comment %}The Details start here!{% endcomment %}
+
+            {% comment %}The Assistantship start here!{% endcomment %}
             <div class="ui active tab segment" data-tab="first">
                 {% block form1 %}
                     {% include 'officeModule/officeOfDeanAcademics/assistantship.html' %}
                 {% endblock %}
             </div>
            
+            {% comment %}The Scholarships start here!{% endcomment %}
             <div class="ui tab segment" data-tab="second">
                {% block form2 %}
                     {% include 'officeModule/officeOfDeanAcademics/scholarship.html' %}
                 {% endblock %}
             </div>
+
+            {% comment %}The Thesis start here!{% endcomment %}
             <div class="ui tab segment" data-tab="third">
                 {% block form3 %}
                     {% include 'officeModule/officeOfDeanAcademics/thesis.html' %}
                 {% endblock %}
             </div>
+
+            {% comment %}The Courses start here!{% endcomment %}
             <div class="ui tab segment" data-tab="fourth">
                  {% block form4 %}
                     {% include 'officeModule/officeOfDeanAcademics/courses.html' %}
                 {% endblock %}
             </div>
+
+            {% comment %}The Applications start here!{% endcomment %}
             <div class="ui tab segment" data-tab="fifth">
                   {% block form5 %}
                     {% include 'officeModule/officeOfDeanAcademics/applications.html' %}
                 {% endblock %}
             </div>
+
+            {% comment %}The Sem results start here!{% endcomment %}
             <div class="ui tab segment" data-tab="sixth">
                   {% block form6 %}
                     {% include 'officeModule/officeOfDeanAcademics/semresults.html' %}
                 {% endblock %}
             </div>
+            
             {% comment %}The Publications ends here!{% endcomment %}
 
         </div>

@@ -18,4 +18,11 @@ urlpatterns = [
     url(r'^officeOfDeanStudents/hostelRoomAllotment', views.hostelRoomAllotment),
     url(r'^officeOfDeanStudents/budget_approval', views.budgetApproval),
     url(r'^officeOfDeanStudents/budget_rejection', views.budgetRejection),
+    url(r'^officeOfDeanAcademics/assistantship', views.assistantship, name='assistantship'),
+    url(r'^officeOfDeanAcademics/applications', views.applications, name='applications'),
+    url(r'^officeOfDeanAcademics/courses', views.courses, name='courses'),
+    url(r'^officeOfDeanAcademics/scholarship', views.scholarship, name='scholarship'),
+    url(r'^officeOfDeanAcademics/semresults', views.semresults, name='semresults'),
+    url(r'^officeOfDeanAcademics/thesis', views.thesis, name='thesis'),
+
 ]

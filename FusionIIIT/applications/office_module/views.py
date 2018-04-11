@@ -3,6 +3,13 @@ from django.http import HttpResponse , HttpResponseRedirect
 from applications.academic_information.models import Meeting
 from .models import Constants,hostel_allotment
 from applications.gymkhana.models import Club_budget
+#assistantship tables,results
+from applications.academic_information.models import Student, Instructor, Spi, Grades, Course
+#scholarship
+from applications.scholarships.models import *
+from applications.academic_procedures.models import Thesis
+from applications.file_tracking.models import *
+from .models import Assistantship
 
 def officeOfDeanStudents(request):
     budget= Club_budget.objects.all().filter(status='open');
@@ -40,12 +47,6 @@ def officeOfDeanPnD(request):
     context = {}
 
     return render(request, "officeModule/officeOfDeanPnD/officeOfDeanPnD.html", context)
-
-def officeOfDeanAcademics(request):
-    context = {}
-
-    return render(request, "officeModule/officeOfDeanAcademics/officeOfDeanAcademics.html", context)
-
 
 def genericModule(request):
     context = {}
@@ -109,3 +110,70 @@ def budgetRejection(request):
         a.save()
 
     return HttpResponseRedirect('/office/officeOfDeanStudents')
+
+# #assistantship tables,results
+# from applications.academic_information.models import Student, Instructor, Spi, Grades, Course
+# #scholarship
+# from applications.scholarships.models import *
+# Award_and_scholarship, Mcm, Previous_winner, Release, Financial_assistance, Common_info, 
+# Director_silver, Proficiency_dm, Director_gold, Group_student
+# from applications.academic_procedures.models import Thesis
+# from applications.file_tracking.models import *
+def officeOfDeanAcademics(request):
+    student=Student.objects.all();
+    instructor=Instructor.objects.all();
+    spi=Spi.objects.all();
+    grades=Grades.objects.all();
+    course=Course.objects.all();
+    thesis=Thesis.objects.all();
+    mcm=Mcm.objects.all();
+    award=Award_and_scholarship.objects.all();
+    previous_winner=Previous_winner.objects.all();
+    release=Release.objects.all();
+    finance=Financial_assistance.objects.all();
+    common=Common_info.objects.all();
+    director_silver=Director_silver.objects.all();
+    proficiency_dm=Proficiency_dm.objects.all();
+    director_gold=Director_gold.objects.all();
+    group=Group_student.objects.all();
+    context = {'student':student,
+                'instructor':instructor,
+                'assistantship':assistantship}
+
+    return render(request, "officeModule/officeOfDeanAcademics/officeOfDeanAcademics.html", context)
+
+def assistantship(request):
+    # print(request.POST.getlist('check'))
+    id=request.POST.get('instructor_id')
+
+
+
+    for i in range(len(id_r)):
+        a=Club_budget.objects.get(id=id_r[i]);
+        a.status='confirmed'
+        a.remarks=remark[i]
+        a.save()
+        
+    # print(id[0])
+
+    return HttpResponse('')
+
+def scholarship(request):
+
+    return HttpResponse('')
+
+def courses(request):
+
+    return HttpResponse('')
+
+def applications(request):
+
+    return HttpResponse('')
+
+def semresults(request):
+
+    return HttpResponse('')
+
+def thesis(request):
+
+    return HttpResponse('')
