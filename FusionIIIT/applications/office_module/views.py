@@ -126,6 +126,7 @@ def officeOfDeanAcademics(request):
     grades=Grades.objects.all();
     course=Course.objects.all();
     thesis=Thesis.objects.all();
+    assistantship=Assistantship.objects.all();
     mcm=Mcm.objects.all();
     award=Award_and_scholarship.objects.all();
     previous_winner=Previous_winner.objects.all();
@@ -144,19 +145,10 @@ def officeOfDeanAcademics(request):
 
 def assistantship(request):
     # print(request.POST.getlist('check'))
-    id=request.POST.get('instructor_id')
-
-
-
-    for i in range(len(id_r)):
-        a=Club_budget.objects.get(id=id_r[i]);
-        a.status='confirmed'
-        a.remarks=remark[i]
-        a.save()
-        
+    ob=Assistantship.objects.all()        
     # print(id[0])
-
-    return HttpResponse('')
+    context = {'ob':ob}
+    return HttpResponseRedirect('/office/officeOfDeanAcademics')
 
 def scholarship(request):
 

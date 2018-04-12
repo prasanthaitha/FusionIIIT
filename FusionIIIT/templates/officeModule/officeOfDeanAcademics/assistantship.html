@@ -54,13 +54,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for assist in assistantship %}
                             <tr>
                                 <td>
                                     <h4 class="ui image header">
                                         <img src="img/matthew.png" class="ui mini rounded image">
                                         <div class="content">
-                                            Lena
-                                            <div class="sub header">Human Resources
+                                            {{assist.instructor_id.instructor_id.user.first_name}} {{assist.instructor_id.instructor_id.user.last_name}}
+                                            <div class="sub header">
+                                            {{assist.instructor_id.instructor_id.department.name}}
                                             </div>
                                         </div>
                                     </h4>
@@ -84,96 +86,8 @@
                                 </td>
                                
                             </tr>
-                            <tr>
-                                <td>
-                                    <h4 class="ui image header">
-                                        <img src="img/matthew.png" class="ui mini rounded image">
-                                        <div class="content">
-                                            Matthew
-                                            <div class="sub header">Fabric Design
-                                            </div>
-                                        </div>
-                                    </h4>
-                                </td>
-                                <td>
-                                    <a href="file:///C:/Users/Mayank%20Saurabh/Music/Dean%20Acad/file/first.pdf" target="_blank">View List</a>
-                                </td>
-                                <td>
-                                    <div class="ui checkbox">
-                                      <input type="checkbox" name="example">
-                                      <label></label>
-                                    </div> 
-                                </td>
-                                   <td>
-                                     <div class="ui form">
-                                        <div class="field">
-                                            <textarea rows="2" ></textarea>
-                                        </div>
-                                        <!--<button class="ui primary loading button">Loading</button>-->
-                                    </div>
-                                </td>
-                             
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4 class="ui image header">
-                                        <img src="img/matthew.png" class="ui mini rounded image">
-                                        <div class="content">
-                                            Lindsay
-                                            <div class="sub header">Entertainment
-                                            </div>
-                                        </div>
-                                    </h4>
-                                </td>
-                                <td>
-                                    <a href="file:///C:/Users/Mayank%20Saurabh/Music/Dean%20Acad/file/first.pdf" target="_blank">View List</a>
-                                </td>
-                                <td>
-                                    <div class="ui checkbox">
-                                      <input type="checkbox" name="example">
-                                      <label></label>
-                                    </div>
-                                </td>
-                                   <td>
-                                     <div class="ui form">
-                                        <div class="field">
-                                            <textarea rows="2" ></textarea>
-                                        </div>
-                                        <!--<button class="ui primary loading button">Loading</button>-->
-                                    </div>
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4 class="ui image header">
-                                        <img src="img/matthew.png" class="ui mini rounded image">
-                                        <div class="content">
-                                            Mark
-                                            <div class="sub header">Executive
-                                            </div>
-                                        </div>
-                                    </h4>
-                                </td>
-                                <td>
-                                    <a href="file:///C:/Users/Mayank%20Saurabh/Music/Dean%20Acad/file/first.pdf" target="_blank">View List</a>
-                                </td>
-                                <td>
-                                    <div class="ui checkbox">
-                                      <input type="checkbox" name="example">
-                                      <label></label>
-                                    </div> 
-                                </td>
-                                   <td>
-                                     <div class="ui form">
-                                        <div class="field">
-                                            <textarea rows="2" ></textarea>
-                                        </div>
-                                        <!--<button class="ui primary loading button">Loading</button>-->
-                                    </div>
-                                </td>
-                              
-                            </tr>
+                            {% endfor %}
+                            
                         </tbody>
                       
                     </table>

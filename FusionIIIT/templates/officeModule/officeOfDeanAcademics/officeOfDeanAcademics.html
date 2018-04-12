@@ -88,6 +88,42 @@
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
+                {% if request.user.extrainfo.designation.name == "academic_user" %}
+                <a class="active item" data-tab="seventh">
+                    Assistantship
+                    <i class="right floated chevron right icon"></i>
+                </a>
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "academic_user" %}
+                <a class="item" data-tab="eight">
+                    Scholarships
+                    <i class="right floated chevron right icon"></i>
+                </a>
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "academic_user" %}
+                <a class="item" data-tab="ninth">
+                    Submitted Thesis
+                    <i class="right floated chevron right icon"></i>
+                </a>
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "academic_user" %}
+                <a class="item" data-tab="tenth">
+                     Floated  Courses
+                    <i class="right floated chevron right icon"></i>
+                </a>
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "academic_user" %}
+                <a class="item" data-tab="eleven">
+                     Applications
+                    <i class="right floated chevron right icon"></i>
+                </a>
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "academic_user" %}
+                <a class="item" data-tab="Twelve">
+                     Sem Results
+                    <i class="right floated chevron right icon"></i>
+                </a>
+                {% endif %}
             </div>
             {% comment %}The Tab-Menu ends here!{% endcomment %}
 
@@ -104,7 +140,7 @@
             {% comment %}The Details start here!{% endcomment %}
 
             {% comment %}The Assistantship start here!{% endcomment %}
-            <div class="ui active tab segment" data-tab="first">
+            <div class="ui tab segment" data-tab="first">
                 {% block form1 %}
                     {% include 'officeModule/officeOfDeanAcademics/assistantship.html' %}
                 {% endblock %}
