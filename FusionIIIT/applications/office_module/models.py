@@ -64,7 +64,9 @@ class hostel_allotment(models.Model):
 class Assistantship(models.Model):
     student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
     instructor_id = models.ForeignKey(Instructor, on_delete=models.CASCADE)
-
+    file = models.FileField(upload_to='documents/',blank=True,null=True)
+    action = models.IntegerField(default=0)
+    comments = models.CharField(null=True,blank=True,max_length=150);
     class Meta:
         db_table = 'Assistantship'
         unique_together = ('student_id','instructor_id')

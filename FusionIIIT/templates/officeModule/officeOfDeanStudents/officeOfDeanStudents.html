@@ -59,15 +59,27 @@
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "superintendent" %}
+                {% if request.user.extrainfo.designation.name == "" %}
                      <a class="item" data-tab="sixth">
-                        Meeting minutes
+                        Assistantship Form
                         <i class="right floated chevron right icon"></i>
                     </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "superintendent" %}
+                {% if request.user.extrainfo.designation.name == "" %}
                  <a class="item" data-tab="seventh">
-                    Hostel Room Allotment
+                    Scholarship form
+                    <i class="right floated chevron right icon"></i>
+                </a>
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "" %}
+                 <a class="item" data-tab="eight">
+                    Thesis upload
+                    <i class="right floated chevron right icon"></i>
+                </a>
+                {% endif %}
+                {% if request.user.extrainfo.designation.name == "" %}
+                 <a class="item" data-tab="nine">
+                    Upload Results
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
@@ -128,6 +140,21 @@
             </div>
             {% comment %}The Hostel Room Allotment ends here!{% endcomment %}
 
+            <div class="ui tab segment" data-tab="eight">
+                {% block thesis %}
+                    {% include 'officeModule/officeOfDeanStudents/thesisupload.html' %}
+                {% endblock %}
+                
+            </div>
+            {% comment %}The Meeting minutes ends here!{% endcomment %}
+
+            {% comment %}The Hostel Room Allotment starts here!{% endcomment %}
+            <div class="ui tab segment" data-tab="nine">
+                {% block semresults %}
+                    {% include 'officeModule/officeOfDeanStudents/results.html' %}
+                {% endblock %}
+            </div>
+
         </div>
         {% comment %}The central-rail segment ends here!{% endcomment %}
 
@@ -136,7 +163,7 @@
             <div class="row">
                 <div class="ui row">
                     <h3 class="ui header" style="padding-left: 16px;">
-                        Office Of Dean Students
+                        Office Of Dean Academics
                     </h3>
                 </div>
             </div>

@@ -40,86 +40,86 @@
 
             <div class="ui huge fluid vertical pointing menu"
                  style="max-width: 320px;">
-                 {% if request.user.extrainfo.designation.name == "Dean_Acad" %}
+                 {% if "Dean_Acad" in all_desig %}
                 <a class="active item" data-tab="first">
                     Assistantship
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "Dean_Acad" %}
+                {% if "Dean_Acad" in all_desig %}
                 <a class="item" data-tab="second">
                     Scholarships
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "Dean_Acad" %}
+                {% if "Dean_Acad" in all_desig %}
                 <a class="item" data-tab="third">
                     Submitted Thesis
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "Dean_Acad" %}
+                {% if "Dean_Acad" in all_desig %}
                 <a class="item" data-tab="fourth">
                      Floated  Courses
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "Dean_Acad" %}
+                {% if "Dean_Acad" in all_desig %}
                 <a class="item" data-tab="fifth">
                      Applications
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "Dean_Acad" %}
+                {% if "Dean_Acad" in all_desig %}
                 <a class="item" data-tab="sixth">
                      Sem Results
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "dracad" %}
+                {% if "dracad" in all_desig %}
                 <a class="item" data-tab="second">
                     Scholarships
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "dracad" %}
+                {% if "dracad" in all_desig %}
                 <a class="item" data-tab="sixth">
                      Sem Results
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "academic_user" %}
+                {% if "academic_user" in all_desig %}
                 <a class="active item" data-tab="seventh">
-                    Assistantship
+                    Assistantship form upload
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "academic_user" %}
+                {% if "academic_user" in all_desig %}
                 <a class="item" data-tab="eight">
-                    Scholarships
+                    Scholarship form upload
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "academic_user" %}
+                {% if "academic_user" in all_desig %}
                 <a class="item" data-tab="ninth">
-                    Submitted Thesis
+                    Initiating Assistantship
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "academic_user" %}
+                {% if "academic_user" in all_desig %}
                 <a class="item" data-tab="tenth">
-                     Floated  Courses
+                     Thesis upload
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "academic_user" %}
+                {% if "academic_user" in all_desig %}
                 <a class="item" data-tab="eleven">
                      Applications
                     <i class="right floated chevron right icon"></i>
                 </a>
                 {% endif %}
-                {% if request.user.extrainfo.designation.name == "academic_user" %}
-                <a class="item" data-tab="Twelve">
+                {% if "academic_user" in all_desig %}
+                <a class="item" data-tab="twelve">
                      Sem Results
                     <i class="right floated chevron right icon"></i>
                 </a>
@@ -177,6 +177,42 @@
             {% comment %}The Sem results start here!{% endcomment %}
             <div class="ui tab segment" data-tab="sixth">
                   {% block form6 %}
+                    {% include 'officeModule/officeOfDeanAcademics/semresults.html' %}
+                {% endblock %}
+            </div>
+
+            <div class="ui tab segment" data-tab="seventh">
+                  {% block form7 %}
+                    {% include 'officeModule/officeOfDeanAcademics/assistantshipform.html' %}
+                {% endblock %}
+            </div>
+
+            <div class="ui tab segment" data-tab="eight">
+                  {% block form8 %}
+                    {% include 'officeModule/officeOfDeanAcademics/scholarshipform.html' %}
+                {% endblock %}
+            </div>
+
+            <div class="ui tab segment" data-tab="ninth">
+                  {% block form9 %}
+                    {% include 'officeModule/officeOfDeanAcademics/creatingassistantship.html' %}
+                {% endblock %}
+            </div>
+
+            <div class="ui tab segment" data-tab="tenth">
+                  {% block form10 %}
+                    {% include 'officeModule/officeOfDeanAcademics/thesisupload.html' %}
+                {% endblock %}
+            </div>
+
+            <div class="ui tab segment" data-tab="eleven">
+                  {% block form11 %}
+                    {% include 'officeModule/officeOfDeanAcademics/semresults.html' %}
+                {% endblock %}
+            </div>
+
+            <div class="ui tab segment" data-tab="twelve">
+                  {% block form12 %}
                     {% include 'officeModule/officeOfDeanAcademics/semresults.html' %}
                 {% endblock %}
             </div>

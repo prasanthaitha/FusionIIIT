@@ -6,9 +6,10 @@ from applications.gymkhana.models import Club_budget
 #assistantship tables,results
 from applications.academic_information.models import Student, Instructor, Spi, Grades, Course
 #scholarship
-from applications.scholarships.models import *
+from applications.scholarships.models import Mcm
 from applications.academic_procedures.models import Thesis
-from applications.file_tracking.models import *
+from applications.globals.models import HoldsDesignation
+#from applications.file_tracking.models import *
 from .models import Assistantship
 
 def officeOfDeanStudents(request):
@@ -126,20 +127,29 @@ def officeOfDeanAcademics(request):
     grades=Grades.objects.all();
     course=Course.objects.all();
     thesis=Thesis.objects.all();
+    minutes=Meeting.objects.all().filter(minutes_file="");
+    final_minutes=Meeting.objects.all().exclude(minutes_file="");
+    hall_allotment=hostel_allotment.objects.all();
     assistantship=Assistantship.objects.all();
     mcm=Mcm.objects.all();
-    award=Award_and_scholarship.objects.all();
-    previous_winner=Previous_winner.objects.all();
-    release=Release.objects.all();
-    finance=Financial_assistance.objects.all();
-    common=Common_info.objects.all();
-    director_silver=Director_silver.objects.all();
-    proficiency_dm=Proficiency_dm.objects.all();
-    director_gold=Director_gold.objects.all();
-    group=Group_student.objects.all();
+    designation = HoldsDesignation.objects.all().filter(working=request.user)
+    all_designation=[]
+    for i in designation:
+        all_designation.append(str(i.designation))
+
+    
+
+
     context = {'student':student,
                 'instructor':instructor,
-                'assistantship':assistantship}
+                'assistantship':assistantship,
+                'hall': Constants.HALL_NO,
+                'hall_allotment':hall_allotment,
+                'mcm':mcm,
+                'thesis':thesis,
+                'meetingMinutes':minutes,
+                'final_minutes':final_minutes,
+                'all_desig':all_designation,}
 
     return render(request, "officeModule/officeOfDeanAcademics/officeOfDeanAcademics.html", context)
 
@@ -149,6 +159,44 @@ def assistantship(request):
     # print(id[0])
     context = {'ob':ob}
     return HttpResponseRedirect('/office/officeOfDeanAcademics')
+
+
+def init_assistantship(request):
+    title= request.POST.get('title')
+    date = request.POST.get('date')
+    Time = request.POST.get('time')
+    Venue = request.POST.get('venue')
+    Agenda = request.POST.get('Agenda')
+    p=Meeting(title=title,venue=Venue,date=date,time=Time,agenda=Agenda);
+    p.save()
+    return HttpResponseRedirect('/office/officeOfDeanAcademics')
+
+def scholarshipform(request):
+    file=request.FILES['hostel_file']
+    hall_no=request.POST.get('hall_no')
+    #description= request.POST.get('description')
+    p=hostel_allotment(allotment_file=file,hall_no=hall_no)
+    p.save()
+    return HttpResponseRedirect('/office/officeOfDeanAcademics')
+
+def formsubmit(request):
+    a = request.POST.get('example');
+    comment = request.POST.get('comment');
+    obj = Assistantship.objects.get(pk=a)
+    if "approve" in request.POST:
+        obj.action=1
+        obj.comments=comment
+        obj.save()
+    elif "reject" in request.POST:
+        obj.action=2
+        obj.comments=comment
+        obj.save()
+
+    return HttpResponseRedirect('/office/officeOfDeanAcademics')
+        
+
+
+    # elif "reject" in request.POST:
 
 def scholarship(request):
 

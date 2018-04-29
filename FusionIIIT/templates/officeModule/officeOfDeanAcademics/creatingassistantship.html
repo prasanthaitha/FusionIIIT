@@ -1,0 +1,30 @@
+{% block form1 %}
+    <h3>Assistantship creation</h3>
+    {% comment %}The tab menu starts here!{% endcomment %}
+    <div class="ui pointing secondary menu">
+        <a class="active item" data-tab="meeting">
+            New Assistantship
+        </a>
+    </div>
+    <div class="ui active tab" data-tab="holding_meetings">
+    <div class="ui vertical segment">
+    <form class="ui  form" action="init_assistantship/" method="post" id="meeting">
+        {% csrf_token %}
+        <div class="field">
+            <label>Instructor</label>
+            <input type="text" name="Instructor" placeholder="Instructor">
+        </div>
+    
+        <div class="field">
+            <label>Student</label>
+            <input type="text" name="Student" placeholder="StudentS">
+        </div>
+        
+        
+        <button class="ui button" type="submit">Submit</button>
+    </form>    
+</div>
+</div>
+
+  
+{% endblock form1%}
