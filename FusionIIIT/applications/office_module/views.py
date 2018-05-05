@@ -77,6 +77,8 @@ def meetingMinutes(request):
     #print(a)
     return HttpResponseRedirect('/office/officeOfDeanStudents')
 
+
+
 def hostelRoomAllotment(request):
     file=request.FILES['hostel_file']
     hall_no=request.POST.get('hall_no')
@@ -152,6 +154,18 @@ def officeOfDeanAcademics(request):
                 'all_desig':all_designation,}
 
     return render(request, "officeModule/officeOfDeanAcademics/officeOfDeanAcademics.html", context)
+
+
+def submit_assistantship(request):
+    file=request.FILES['minutes_file']
+    id=request.POST.get('id')
+    b=Meeting.objects.get(id=id)
+    b.minutes_file=file
+    b.save()
+    #print(file)
+    #a=Meeting.objects.all().filter(minutes_file="");
+    #print(a)
+    return HttpResponseRedirect('/office/officeOfDeanAcademics')
 
 def assistantship(request):
     # print(request.POST.getlist('check'))

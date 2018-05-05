@@ -22,7 +22,7 @@
                                             </tr>
                         </thead>
                         <tr>
-                                <form class="ui  form" action="meeting_Minutes/" method="post" enctype="multipart/form-data">
+                                <form class="ui  form" action="submit_assistantship/" method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     {% for details in meetingMinutes%}
                                 <td>{{  details.title }}</td>

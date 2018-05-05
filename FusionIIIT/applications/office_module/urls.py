@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^officeOfDeanAcademics/assistantship', views.assistantship, name='assistantship'),
     url(r'^officeOfDeanAcademics/formsubmit', views.formsubmit, name='formsubmit'),
     url(r'^officeOfDeanAcademics/init_assistantship', views.init_assistantship, name='init_assistantship'),
+    url(r'^officeOfDeanAcademics/submit_assistantship', views.submit_assistantship, name='submit_assistantship'),
     url(r'^officeOfDeanAcademics/scholarshipform', views.scholarshipform),
     url(r'^officeOfDeanAcademics/applications', views.applications, name='applications'),
     url(r'^officeOfDeanAcademics/courses', views.courses, name='courses'),
